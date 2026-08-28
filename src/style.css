@@ -1,0 +1,55 @@
+/* apppro.co.jp — 移行用の仮スタイル（デザインは移行後に整える。まず読めること優先） */
+:root {
+  --ink: #1e2430;
+  --ink-sub: #5a6472;
+  --line: #dde2e8;
+  --bg: #ffffff;
+  --surface: #f5f7fa;
+  --accent: #0056AA; /* ブランド濃青（apppro-web と共通） */
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.9;
+  font-size: 15.5px;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+h1, h2, h3 { line-height: 1.5; margin: 0; }
+
+.site-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 5vw; border-bottom: 1px solid var(--line);
+}
+.site-nav .brand { font-weight: 700; }
+.site-nav nav { display: flex; gap: 18px; font-size: 14px; }
+.site-nav nav a { text-decoration: none; color: var(--ink); }
+
+main { max-width: 860px; margin: 0 auto; padding: 0 5vw; }
+
+.hero { padding: 64px 0 40px; }
+.hero h1 { font-size: clamp(1.5rem, 4.5vw, 2.2rem); font-weight: 700; }
+.hero-sub { margin-top: 18px; color: var(--ink-sub); }
+.hero-note { margin-top: 10px; font-size: 13.5px; }
+
+.section { padding: 40px 0; border-top: 1px solid var(--line); }
+.section h2 { font-size: 1.3rem; margin-bottom: 18px; }
+
+.svc-grid { display: grid; gap: 14px; }
+@media (min-width: 680px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
+.svc { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; }
+.svc h3 { font-size: 1.02rem; margin-bottom: 6px; }
+.svc p { margin: 0; font-size: 13.5px; color: var(--ink-sub); }
+
+.company { margin: 0; }
+.company .row { display: grid; grid-template-columns: 7em 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.company dt { color: var(--ink-sub); font-size: 14px; }
+.company dd { margin: 0; }
+
+.mail { font-weight: 700; }
+
+.site-foot { border-top: 1px solid var(--line); margin-top: 48px; padding: 26px 5vw 40px; font-size: 13.5px; color: var(--ink-sub); }
+.site-foot p { margin: 4px 0; }
+.site-foot .copy { margin-top: 12px; font-size: 12px; }
