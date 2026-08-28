@@ -1,0 +1,18 @@
+# WordPress からの移行で消えるURLの受け皿（301）。
+# 旧サイトは WP のリダイレクトで吸収していたURLがあるため、静的化後は明示的に受ける。
+
+# 日付なしのスラッグ直打ち（WP側で301されていた）
+/it-hojyokin-2026-news-digital-ai   /2026/02/20/it-hojyokin-2026-news-digital-ai/   301
+
+# 記事の公開日変更で残った旧パス
+/2024/03/28/ai-robot-subsidy-guide-small-business   /2026/03/28/ai-robot-subsidy-guide-small-business/   301
+
+# WPのカテゴリ・タグ・フィード（静的サイトでは作らない）
+/category/*   /news/   301
+/tag/*        /news/   301
+/feed/        /news/   301
+/comments/feed/   /news/   301
+
+# WP管理系（存在しないので入口ごと閉じる）
+/wp-admin/*   /   301
+/wp-login.php   /   301
