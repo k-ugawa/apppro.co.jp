@@ -1,0 +1,15 @@
+{
+  // Cloudflare の「Workers（静的アセット）」としてデプロイするための設定。
+  // ダッシュボードでプロジェクトを作ると Deploy command が `npx wrangler deploy` になり、
+  // この設定ファイルが無いとデプロイが失敗する（2026-08-28 実際に失敗しかけた）。
+  //
+  // 中身は `npm run build` の出力（dist/）をそのまま配信するだけ。サーバー側のコードは無い。
+  // dist/ に入る _redirects（旧URLの301）と _headers（キャッシュ）はそのまま解釈される。
+  "name": "apppro-cojp",
+  "compatibility_date": "2026-08-28",
+  "assets": {
+    "directory": "./dist",
+    // 存在しないURLは 404.html を返す（ディレクトリ型URLはそのまま index.html を返す）
+    "not_found_handling": "404-page"
+  }
+}
