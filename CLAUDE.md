@@ -98,3 +98,13 @@ node test/check_site.mjs --browser    # 横はみ出し・consoleエラー・h1
 - 日時は JST。YAGNI。建設的異論を歓迎。事実は検証して出典を付ける。
 - 母艦とノートで同時作業しない。作業前 git pull、区切りで git push。
 - デザインは旧WPを踏襲しない（2026-08-28 宇川さん決定）。ブランド濃青 #0056AA だけ apppro-web と共通。
+
+## デプロイの実際（2026-08-28 判明）
+
+ダッシュボードで作ると **Pages ではなく Workers ビルド**になる（Cloudflare が統合したため）。
+- プロジェクト名 `apppro-cojp` ／ Build command `npm run build` ／ Deploy command `npx wrangler deploy`
+- そのため **`wrangler.jsonc` が必須**（無いとデプロイが落ちる）。中身は dist/ を配信するだけ
+- Node は `.node-version`（22）で固定
+- **ビルドの発火は main への push**。ダッシュボードの「New deployment」は手動ファイルアップロード用なので使わない。
+  「Retry build」は同じコミットをやり直すだけなので、コードを直したら push で回す
+- `dist/` に入る `_redirects`（旧URLの301）と `_headers`（キャッシュ）はそのまま効く
